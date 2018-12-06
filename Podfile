@@ -8,4 +8,5 @@ target 'ZZIMDemo' do
   pod 'FMDB'
   pod 'Masonry'
   pod 'ReactiveCocoa', '~> 8.0'
+  pod 'MJExtension'
 end

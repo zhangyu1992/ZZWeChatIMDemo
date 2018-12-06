@@ -1,24 +1,23 @@
-
 //
-//  ZZWeChatViewController.m
+//  ZZWeChatSessionViewController.m
 //  ZZIMDemo
 //
-//  Created by 张张 on 2018/12/5.
+//  Created by 张张 on 2018/12/6.
 //  Copyright © 2018年 张张. All rights reserved.
 //
 
-#import "ZZWeChatViewController.h"
+#import "ZZWeChatSessionViewController.h"
 
-@interface ZZWeChatViewController ()
+@interface ZZWeChatSessionViewController ()
 
 @end
 
-@implementation ZZWeChatViewController
+@implementation ZZWeChatSessionViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self creatNavBarViewWithTitle:@"微信"];
+    [self creatNavBarViewWithTitle:self.listWeChatModel.wechat_name];
 }
 
 /*

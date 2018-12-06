@@ -10,6 +10,7 @@
 #import "ZZWebSocketUtility.h"
 #import "CYLTabBarController.h"
 #import "ZZWeChatViewController.h"
+#import "ZZAddressBookViewController.h"
 #import "JTNavigationController.h"
 @interface AppDelegate ()
 @property (nonatomic, strong) CYLTabBarController * tabBarController;
@@ -33,15 +34,15 @@
     JTNavigationController *firstNavigationController = [[JTNavigationController alloc]
                                                    initWithRootViewController:firstViewController];
     
-    ZZWeChatViewController *secondViewController = [[ZZWeChatViewController alloc] init];
+    ZZAddressBookViewController *secondViewController = [[ZZAddressBookViewController alloc] init];
     JTNavigationController *secondNavigationController = [[JTNavigationController alloc]
                                                     initWithRootViewController:secondViewController];
     
-    ZZWeChatViewController *findViewController = [[ZZWeChatViewController alloc] init];
+    ZZAddressBookViewController *findViewController = [[ZZAddressBookViewController alloc] init];
     JTNavigationController *findNavigationController = [[JTNavigationController alloc]
                                                           initWithRootViewController:findViewController];
     
-    ZZWeChatViewController *mineViewController = [[ZZWeChatViewController alloc] init];
+    ZZAddressBookViewController *mineViewController = [[ZZAddressBookViewController alloc] init];
     JTNavigationController *mineNavigationController = [[JTNavigationController alloc]
                                                           initWithRootViewController:mineViewController];
     
@@ -64,23 +65,23 @@
     
     NSDictionary *dict1 = @{
                             CYLTabBarItemTitle : @"微信",
-                            CYLTabBarItemImage : @"home_normal",
-                            CYLTabBarItemSelectedImage : @"home_highlight",
+                            CYLTabBarItemImage : @"duanxin-4",
+                            CYLTabBarItemSelectedImage : @"duanxin-3",
                             };
     NSDictionary *dict2 = @{
                             CYLTabBarItemTitle : @"通讯录",
-                            CYLTabBarItemImage : @"mycity_normal",
-                            CYLTabBarItemSelectedImage : @"mycity_highlight",
+                            CYLTabBarItemImage : @"wenben-4",
+                            CYLTabBarItemSelectedImage : @"wenben-3",
                             };
     NSDictionary *dict3 = @{
                             CYLTabBarItemTitle : @"发现",
-                            CYLTabBarItemImage : @"mycity_normal",
-                            CYLTabBarItemSelectedImage : @"mycity_highlight",
+                            CYLTabBarItemImage : @"xianshi-4",
+                            CYLTabBarItemSelectedImage : @"xianshi-3",
                             };
     NSDictionary *dict4 = @{
                             CYLTabBarItemTitle : @"我的",
-                            CYLTabBarItemImage : @"mycity_normal",
-                            CYLTabBarItemSelectedImage : @"mycity_highlight",
+                            CYLTabBarItemImage : @"ren-4",
+                            CYLTabBarItemSelectedImage : @"ren-3",
                             };
     NSArray *tabBarItemsAttributes = @[ dict1, dict2 ,dict3,dict4];
     tabBarController.tabBarItemsAttributes = tabBarItemsAttributes;

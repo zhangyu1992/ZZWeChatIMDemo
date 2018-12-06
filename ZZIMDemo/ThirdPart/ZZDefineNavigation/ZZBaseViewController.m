@@ -19,6 +19,13 @@
     // Do any additional setup after loading the view.
     self.view.backgroundColor = ZZ_MainVC_BackGroundColor;
     [self.navigationController setNavigationBarHidden:YES animated:YES];
+    [self.view addSubview:self.backView];
+}
+-(UIView *)backView{
+    if (_backView == nil) {
+        _backView = [[UIView alloc]initWithFrame:CGRectMake(0, ZZ_Navigation_Height, ZZScreenWidth, ZZScreenHeight - ZZ_Navigation_Height)];
+    }
+    return _backView;
 }
 - (void)creatNavBarViewWithTitle:(id)title{
     if (self.navBarView == nil) {

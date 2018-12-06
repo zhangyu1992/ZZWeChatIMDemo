@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface ZZBaseViewController : UIViewController
 @property (nonatomic, strong) ZZBaseNavigationBarView * navBarView;
 - (void)creatNavBarViewWithTitle:(id)title;
+@property (nonatomic, strong) UIView * backView;
 @end
 
 NS_ASSUME_NONNULL_END

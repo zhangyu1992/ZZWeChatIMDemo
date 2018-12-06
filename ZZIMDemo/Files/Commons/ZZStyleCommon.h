@@ -26,4 +26,15 @@
 #define ZZ_NavBar_TitleColor ZZColor(255,255,255)
 /**主控制器背景颜色*/
 #define ZZ_MainVC_BackGroundColor ZZColor(255,255,255)
+/**主背景颜色 -- 灰色*/
+#define ZZMianBackColor_Gray ZZColor(230,230,230)
+/**主文字颜色 -- 黑色*/
+#define ZZMainTextColor_Balck ZZColor(51,51,51)
+/**主文字颜色 -- 灰色*/
+#define ZZMainTextColor_Gray ZZColor(128,128,128)
+
+/**WeChatlist 标题文字大小*/
+#define ZZWeChatNameLabelFont [UIFont systemFontOfSize:20.0]
+#define ZZWeChatContLabelFont [UIFont systemFontOfSize:18.0]
+
 #endif /* ZZStyleCommon_h */

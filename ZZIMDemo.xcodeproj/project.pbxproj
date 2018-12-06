@@ -20,7 +20,17 @@
 		26128F4E21B7B163007A8508 /* JTNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26128F4C21B7B163007A8508 /* JTNavigationController.m */; };
 		26128F5221B7B21C007A8508 /* ZZBaseNavigationBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 26128F5121B7B21C007A8508 /* ZZBaseNavigationBarView.m */; };
 		26128F5921B7BA19007A8508 /* ZZBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26128F5821B7BA19007A8508 /* ZZBaseViewController.m */; };
+		26A35C2D21B8B6EC00CE5A81 /* ZZSearchBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 26A35C2C21B8B6EC00CE5A81 /* ZZSearchBarView.m */; };
+		26A35C3021B8C09B00CE5A81 /* ZZWeChatListTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 26A35C2F21B8C09B00CE5A81 /* ZZWeChatListTableView.m */; };
+		26A35C3821B8C5B000CE5A81 /* ZZWeChatViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 26A35C3721B8C5B000CE5A81 /* ZZWeChatViewModel.m */; };
+		26A35C3B21B8C72E00CE5A81 /* ZZWeChatSessionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 26A35C3A21B8C72E00CE5A81 /* ZZWeChatSessionTableViewCell.m */; };
+		26A35C3F21B8CA9B00CE5A81 /* ZZFMDBTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 26A35C3E21B8CA9B00CE5A81 /* ZZFMDBTool.m */; };
+		26A35C4221B8F6B400CE5A81 /* NSDictionary+GMBExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 26A35C4121B8F6B400CE5A81 /* NSDictionary+GMBExtension.m */; };
+		26E7557C21B90DE9005FB335 /* ZZWeChatSessionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26E7557B21B90DE9005FB335 /* ZZWeChatSessionTableViewCell.xib */; };
+		26E7557F21B91161005FB335 /* ZZAddressBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E7557E21B91161005FB335 /* ZZAddressBookViewController.m */; };
+		26E7558821B915D4005FB335 /* ZZWeChatSessionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E7558721B915D4005FB335 /* ZZWeChatSessionViewController.m */; };
 		26F290F521B7BE5B00599BD7 /* ZZWeChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26F290F421B7BE5B00599BD7 /* ZZWeChatViewController.m */; };
+		26F3D4D921B9014600EF7659 /* ZZWeChatModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 26F3D4D821B9014600EF7659 /* ZZWeChatModel.m */; };
 		99A2F09F62A681787C21B9D8 /* Pods_ZZIMDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EF8EAC540E830EF07AA57BE /* Pods_ZZIMDemo.framework */; };
 /* End PBXBuildFile section */
 
@@ -70,8 +80,28 @@
 		26128F5521B7B346007A8508 /* ZZPrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZZPrefixHeader.pch; sourceTree = "<group>"; };
 		26128F5721B7BA19007A8508 /* ZZBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZZBaseViewController.h; sourceTree = "<group>"; };
 		26128F5821B7BA19007A8508 /* ZZBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZZBaseViewController.m; sourceTree = "<group>"; };
+		26A35C2B21B8B6EC00CE5A81 /* ZZSearchBarView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZZSearchBarView.h; sourceTree = "<group>"; };
+		26A35C2C21B8B6EC00CE5A81 /* ZZSearchBarView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZZSearchBarView.m; sourceTree = "<group>"; };
+		26A35C2E21B8C09B00CE5A81 /* ZZWeChatListTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZZWeChatListTableView.h; sourceTree = "<group>"; };
+		26A35C2F21B8C09B00CE5A81 /* ZZWeChatListTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZZWeChatListTableView.m; sourceTree = "<group>"; };
+		26A35C3621B8C5B000CE5A81 /* ZZWeChatViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZZWeChatViewModel.h; sourceTree = "<group>"; };
+		26A35C3721B8C5B000CE5A81 /* ZZWeChatViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZZWeChatViewModel.m; sourceTree = "<group>"; };
+		26A35C3921B8C72E00CE5A81 /* ZZWeChatSessionTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZZWeChatSessionTableViewCell.h; sourceTree = "<group>"; };
+		26A35C3A21B8C72E00CE5A81 /* ZZWeChatSessionTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZZWeChatSessionTableViewCell.m; sourceTree = "<group>"; };
+		26A35C3D21B8CA9B00CE5A81 /* ZZFMDBTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZZFMDBTool.h; sourceTree = "<group>"; };
+		26A35C3E21B8CA9B00CE5A81 /* ZZFMDBTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZZFMDBTool.m; sourceTree = "<group>"; };
+		26A35C4021B8F6B300CE5A81 /* NSDictionary+GMBExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+GMBExtension.h"; sourceTree = "<group>"; };
+		26A35C4121B8F6B400CE5A81 /* NSDictionary+GMBExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+GMBExtension.m"; sourceTree = "<group>"; };
+		26E7557B21B90DE9005FB335 /* ZZWeChatSessionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZZWeChatSessionTableViewCell.xib; sourceTree = "<group>"; };
+		26E7557D21B91161005FB335 /* ZZAddressBookViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZZAddressBookViewController.h; sourceTree = "<group>"; };
+		26E7557E21B91161005FB335 /* ZZAddressBookViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZZAddressBookViewController.m; sourceTree = "<group>"; };
+		26E7558621B915D4005FB335 /* ZZWeChatSessionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ZZWeChatSessionViewController.h; path = ZZIMDemo/Classes/AddressBook/ZZWeChatSessionViewController.h; sourceTree = SOURCE_ROOT; };
+		26E7558721B915D4005FB335 /* ZZWeChatSessionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ZZWeChatSessionViewController.m; path = ZZIMDemo/Classes/AddressBook/ZZWeChatSessionViewController.m; sourceTree = SOURCE_ROOT; };
 		26F290F321B7BE5B00599BD7 /* ZZWeChatViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZZWeChatViewController.h; sourceTree = "<group>"; };
 		26F290F421B7BE5B00599BD7 /* ZZWeChatViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZZWeChatViewController.m; sourceTree = "<group>"; };
+		26F3D4D621B8FE0F00EF7659 /* ZZNamesCommon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZZNamesCommon.h; sourceTree = "<group>"; };
+		26F3D4D721B9014600EF7659 /* ZZWeChatModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZZWeChatModel.h; sourceTree = "<group>"; };
+		26F3D4D821B9014600EF7659 /* ZZWeChatModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZZWeChatModel.m; sourceTree = "<group>"; };
 		3EF8EAC540E830EF07AA57BE /* Pods_ZZIMDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZZIMDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B848AED59096F713B58291A9 /* Pods-ZZIMDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZZIMDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZZIMDemo/Pods-ZZIMDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		DE9667EFFB9FC91EB14D39EC /* Pods-ZZIMDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZZIMDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZZIMDemo/Pods-ZZIMDemo.release.xcconfig"; sourceTree = "<group>"; };
@@ -130,6 +160,7 @@
 			children = (
 				26128F4721B7AF7A007A8508 /* Main */,
 				26128F3E21B7AE91007A8508 /* Classes */,
+				26A35C2821B8B64700CE5A81 /* ComponentizedControl(组件化控件) */,
 				26128F4221B7AE91007A8508 /* ThirdPart */,
 				26128F4121B7AE91007A8508 /* NetWork */,
 				26128F4021B7AE91007A8508 /* Category */,
@@ -175,7 +206,7 @@
 		26128F3E21B7AE91007A8508 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				26128F4321B7AF2C007A8508 /* WeChat */,
+				26E7558121B91567005FB335 /* WeChat */,
 				26128F4421B7AF38007A8508 /* AddressBook */,
 				26128F4521B7AF4B007A8508 /* Find */,
 				26128F4621B7AF54007A8508 /* Mine */,
@@ -186,6 +217,7 @@
 		26128F3F21B7AE91007A8508 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				26A35C3C21B8CA7900CE5A81 /* FMDBTool */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -193,6 +225,8 @@
 		26128F4021B7AE91007A8508 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				26A35C4021B8F6B300CE5A81 /* NSDictionary+GMBExtension.h */,
+				26A35C4121B8F6B400CE5A81 /* NSDictionary+GMBExtension.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -213,18 +247,22 @@
 			path = ThirdPart;
 			sourceTree = "<group>";
 		};
-		26128F4321B7AF2C007A8508 /* WeChat */ = {
+		26128F4321B7AF2C007A8508 /* WeChatList */ = {
 			isa = PBXGroup;
 			children = (
-				26F290F321B7BE5B00599BD7 /* ZZWeChatViewController.h */,
-				26F290F421B7BE5B00599BD7 /* ZZWeChatViewController.m */,
+				26A35C2621B8B5E500CE5A81 /* M */,
+				26A35C2521B8B5DB00CE5A81 /* C */,
+				26A35C2721B8B5EB00CE5A81 /* V */,
+				26A35C3521B8C58F00CE5A81 /* VM */,
 			);
-			path = WeChat;
+			path = WeChatList;
 			sourceTree = "<group>";
 		};
 		26128F4421B7AF38007A8508 /* AddressBook */ = {
 			isa = PBXGroup;
 			children = (
+				26E7557D21B91161005FB335 /* ZZAddressBookViewController.h */,
+				26E7557E21B91161005FB335 /* ZZAddressBookViewController.m */,
 			);
 			path = AddressBook;
 			sourceTree = "<group>";
@@ -289,8 +327,124 @@
 			isa = PBXGroup;
 			children = (
 				26128F5421B7B324007A8508 /* ZZStyleCommon.h */,
+				26F3D4D621B8FE0F00EF7659 /* ZZNamesCommon.h */,
 			);
 			path = Commons;
+			sourceTree = "<group>";
+		};
+		26A35C2521B8B5DB00CE5A81 /* C */ = {
+			isa = PBXGroup;
+			children = (
+				26F290F321B7BE5B00599BD7 /* ZZWeChatViewController.h */,
+				26F290F421B7BE5B00599BD7 /* ZZWeChatViewController.m */,
+			);
+			path = C;
+			sourceTree = "<group>";
+		};
+		26A35C2621B8B5E500CE5A81 /* M */ = {
+			isa = PBXGroup;
+			children = (
+				26F3D4D721B9014600EF7659 /* ZZWeChatModel.h */,
+				26F3D4D821B9014600EF7659 /* ZZWeChatModel.m */,
+			);
+			path = M;
+			sourceTree = "<group>";
+		};
+		26A35C2721B8B5EB00CE5A81 /* V */ = {
+			isa = PBXGroup;
+			children = (
+				26A35C2E21B8C09B00CE5A81 /* ZZWeChatListTableView.h */,
+				26A35C2F21B8C09B00CE5A81 /* ZZWeChatListTableView.m */,
+				26A35C3921B8C72E00CE5A81 /* ZZWeChatSessionTableViewCell.h */,
+				26A35C3A21B8C72E00CE5A81 /* ZZWeChatSessionTableViewCell.m */,
+				26E7557B21B90DE9005FB335 /* ZZWeChatSessionTableViewCell.xib */,
+			);
+			path = V;
+			sourceTree = "<group>";
+		};
+		26A35C2821B8B64700CE5A81 /* ComponentizedControl(组件化控件) */ = {
+			isa = PBXGroup;
+			children = (
+				26A35C2A21B8B6B600CE5A81 /* ZZSearchControl */,
+			);
+			path = "ComponentizedControl(组件化控件)";
+			sourceTree = "<group>";
+		};
+		26A35C2A21B8B6B600CE5A81 /* ZZSearchControl */ = {
+			isa = PBXGroup;
+			children = (
+				26A35C2B21B8B6EC00CE5A81 /* ZZSearchBarView.h */,
+				26A35C2C21B8B6EC00CE5A81 /* ZZSearchBarView.m */,
+			);
+			path = ZZSearchControl;
+			sourceTree = "<group>";
+		};
+		26A35C3521B8C58F00CE5A81 /* VM */ = {
+			isa = PBXGroup;
+			children = (
+				26A35C3621B8C5B000CE5A81 /* ZZWeChatViewModel.h */,
+				26A35C3721B8C5B000CE5A81 /* ZZWeChatViewModel.m */,
+			);
+			path = VM;
+			sourceTree = "<group>";
+		};
+		26A35C3C21B8CA7900CE5A81 /* FMDBTool */ = {
+			isa = PBXGroup;
+			children = (
+				26A35C3D21B8CA9B00CE5A81 /* ZZFMDBTool.h */,
+				26A35C3E21B8CA9B00CE5A81 /* ZZFMDBTool.m */,
+			);
+			path = FMDBTool;
+			sourceTree = "<group>";
+		};
+		26E7558021B91553005FB335 /* WeChatSession */ = {
+			isa = PBXGroup;
+			children = (
+				26E7558221B9157C005FB335 /* M */,
+				26E7558421B915A6005FB335 /* C */,
+				26E7558321B91595005FB335 /* V */,
+			);
+			path = WeChatSession;
+			sourceTree = "<group>";
+		};
+		26E7558121B91567005FB335 /* WeChat */ = {
+			isa = PBXGroup;
+			children = (
+				26128F4321B7AF2C007A8508 /* WeChatList */,
+				26E7558021B91553005FB335 /* WeChatSession */,
+				26E7558521B915AC005FB335 /* VM */,
+			);
+			path = WeChat;
+			sourceTree = "<group>";
+		};
+		26E7558221B9157C005FB335 /* M */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = M;
+			sourceTree = "<group>";
+		};
+		26E7558321B91595005FB335 /* V */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = V;
+			sourceTree = "<group>";
+		};
+		26E7558421B915A6005FB335 /* C */ = {
+			isa = PBXGroup;
+			children = (
+				26E7558621B915D4005FB335 /* ZZWeChatSessionViewController.h */,
+				26E7558721B915D4005FB335 /* ZZWeChatSessionViewController.m */,
+			);
+			path = C;
+			sourceTree = "<group>";
+		};
+		26E7558521B915AC005FB335 /* VM */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = VM;
 			sourceTree = "<group>";
 		};
 		77F1B119D7567088B96A2F1C /* Frameworks */ = {
@@ -415,6 +569,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26E7557C21B90DE9005FB335 /* ZZWeChatSessionTableViewCell.xib in Resources */,
 				26128F1421B67146007A8508 /* LaunchScreen.storyboard in Resources */,
 				26128F1121B67146007A8508 /* Assets.xcassets in Resources */,
 				26128F0F21B67144007A8508 /* Main.storyboard in Resources */,
@@ -472,6 +627,7 @@
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
 				"${BUILT_PRODUCTS_DIR}/CYLTabBarController/CYLTabBarController.framework",
 				"${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework",
+				"${BUILT_PRODUCTS_DIR}/MJExtension/MJExtension.framework",
 				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
 				"${BUILT_PRODUCTS_DIR}/ReactiveCocoa/ReactiveCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/ReactiveSwift/ReactiveSwift.framework",
@@ -486,6 +642,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CYLTabBarController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FMDB.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJExtension.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveSwift.framework",
@@ -505,14 +662,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26A35C2D21B8B6EC00CE5A81 /* ZZSearchBarView.m in Sources */,
 				26128F0C21B67144007A8508 /* ViewController.m in Sources */,
 				26128F4E21B7B163007A8508 /* JTNavigationController.m in Sources */,
 				26128F5221B7B21C007A8508 /* ZZBaseNavigationBarView.m in Sources */,
+				26A35C3021B8C09B00CE5A81 /* ZZWeChatListTableView.m in Sources */,
 				26F290F521B7BE5B00599BD7 /* ZZWeChatViewController.m in Sources */,
 				26128F1721B67146007A8508 /* main.m in Sources */,
 				26128F3C21B67349007A8508 /* ZZWebSocketUtility.m in Sources */,
+				26A35C3F21B8CA9B00CE5A81 /* ZZFMDBTool.m in Sources */,
+				26A35C4221B8F6B400CE5A81 /* NSDictionary+GMBExtension.m in Sources */,
+				26A35C3B21B8C72E00CE5A81 /* ZZWeChatSessionTableViewCell.m in Sources */,
+				26E7558821B915D4005FB335 /* ZZWeChatSessionViewController.m in Sources */,
+				26F3D4D921B9014600EF7659 /* ZZWeChatModel.m in Sources */,
 				26128F4D21B7B163007A8508 /* UIViewController+JTNavigationExtension.m in Sources */,
+				26E7557F21B91161005FB335 /* ZZAddressBookViewController.m in Sources */,
 				26128F0921B67144007A8508 /* AppDelegate.m in Sources */,
+				26A35C3821B8C5B000CE5A81 /* ZZWeChatViewModel.m in Sources */,
 				26128F5921B7BA19007A8508 /* ZZBaseViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
