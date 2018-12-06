@@ -18,6 +18,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self creatNavBarViewWithTitle:self.listWeChatModel.wechat_name];
+    [self showLeftButton];
 }
 
 /*

@@ -8,7 +8,11 @@
 
 #import "ZZBaseNavigationBarView.h"
 @interface ZZBaseNavigationBarView()
+// 标题
 @property (nonatomic, strong) UILabel * titleLabel;
+// 左侧按钮
+@property (nonatomic, strong) UIButton * leftButton;
+@property (nonatomic, strong) UILabel * LeftLabel;
 
 @end
 @implementation ZZBaseNavigationBarView
@@ -18,6 +22,38 @@
         self.backgroundColor = ZZ_Navigation_DefalutColor;
     }
     return self;
+}
+// chuang
+- (void)createLeftButtonWithTitle:(NSString *)strTitle action:(SEL)selAction target:(id)target{
+    if (!_leftButton)
+    {
+        _leftButton = [[UIButton alloc]init];
+        _leftButton.tag = 10001;
+        _leftButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+        _leftButton.titleEdgeInsets = UIEdgeInsetsMake(0, 30, 0, 0);
+        _leftButton.titleLabel.adjustsFontSizeToFitWidth = YES;
+        [_leftButton setTitleColor:ZZ_NavBar_TitleColor forState:UIControlStateNormal];
+        [_leftButton setImage:[UIImage imageNamed:@"jiantou" ] forState:UIControlStateNormal];
+        _leftButton.titleLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:14];
+        [self addSubview:_leftButton];
+        [_leftButton mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.width.mas_equalTo(30);
+            make.height.mas_equalTo(30);
+            make.left.equalTo(self.mas_left).offset(20);
+            make.top.equalTo(self.mas_top).offset(ZZ_StatesBar_Height + 5);
+
+        }];
+    }
+    
+
+    if (strTitle && ![strTitle isEqualToString:@""]) /// 有标题的情况下，将图片作为background
+    {        
+        /// 普通状态下的文字颜色
+        [_leftButton setTitle:strTitle forState:UIControlStateNormal];
+
+        
+    }
+    [_leftButton addTarget:target action:selAction forControlEvents:UIControlEventTouchUpInside];
 }
 - (id)initWithTitle:(NSString *)titleStr{
     if (self = [self init]) {
@@ -45,6 +81,12 @@
         _titleLabel.textColor = ZZ_NavBar_TitleColor;
     }
     return _titleLabel;
+}
+- (UILabel *)LeftLabel{
+    if (_LeftLabel == nil) {
+        
+    }
+    return _LeftLabel;
 }
 
 @end

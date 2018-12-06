@@ -21,6 +21,26 @@
     [self.navigationController setNavigationBarHidden:YES animated:YES];
     [self.view addSubview:self.backView];
 }
+- (void)showLeftButton{
+    [self creatNavLeftBtnWithItem:@"返回" action:@selector(ClickLeftButton:) target:self];
+}
+- (void)ClickLeftButton:(UIButton *)sender{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+// 创建一个左边的按钮
+- (void)creatNavLeftBtnWithItem:(id)item action:(SEL)selAction target:(id)target
+{
+    if (!self.navBarView) {
+        self.navBarView = [[ZZBaseNavigationBarView alloc]initWithTitle:@""];
+        [self.view addSubview:self.navBarView];
+    }
+    
+    if (item) {
+        [self.navBarView createLeftButtonWithTitle:item action:selAction target:target];
+    }
+    
+}
+
 -(UIView *)backView{
     if (_backView == nil) {
         _backView = [[UIView alloc]initWithFrame:CGRectMake(0, ZZ_Navigation_Height, ZZScreenWidth, ZZScreenHeight - ZZ_Navigation_Height)];

@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface ZZBaseNavigationBarView : UIView
 - (id)initWithTitle:(NSString *)titleStr;
 - (void)setNavTitleLabel:(NSString *)title;
+- (void)createLeftButtonWithTitle:(NSString *)strTitle action:(SEL)selAction target:(id)target;
 @end
 
 NS_ASSUME_NONNULL_END

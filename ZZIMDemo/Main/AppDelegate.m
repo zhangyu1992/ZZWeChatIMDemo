@@ -25,10 +25,14 @@
     [[ZZWebSocketUtility shareInstance] connectWebSocket];
     [self setupViewControllers];
   
-    [self.window setRootViewController:self.tabBarController];
+    JTNavigationController *firstNavigationController = [[JTNavigationController alloc]
+                                                         initWithRootViewController:self.tabBarController];
+    
+    [self.window setRootViewController:firstNavigationController];
 
     return YES;
 }
+
 - (void)setupViewControllers {
     ZZWeChatViewController *firstViewController = [[ZZWeChatViewController alloc] init];
     JTNavigationController *firstNavigationController = [[JTNavigationController alloc]
@@ -50,10 +54,11 @@
     CYLTabBarController *tabBarController = [[CYLTabBarController alloc] init];
     [self customizeTabBarForController:tabBarController];
     
-    [tabBarController setViewControllers:@[
-                                           firstNavigationController,
-                                           secondNavigationController,findNavigationController,mineNavigationController
-                                           ]];
+//    [tabBarController setViewControllers:@[
+//                                           firstNavigationController,
+//                                           secondNavigationController,findNavigationController,mineNavigationController
+//                                           ]];
+    [tabBarController setViewControllers:@[firstViewController,secondViewController,findViewController,mineViewController]];
     self.tabBarController = tabBarController;
 }
 /*

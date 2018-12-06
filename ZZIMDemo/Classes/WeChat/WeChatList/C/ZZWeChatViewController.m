@@ -33,7 +33,7 @@
 
 }
 - (void)TableViewDidSelectedWithModel:(ZZWeChatModel *)wechatModel{
-    [self.navigationController pushViewController:[self.WeChatViewModel pushSessionViewControllerWithWeChatModel:wechatModel] animated:YES];
+    [super.navigationController pushViewController:[self.WeChatViewModel pushSessionViewControllerWithWeChatModel:wechatModel] animated:YES];
 }
 -(ZZWeChatViewModel *)WeChatViewModel{
     if (_WeChatViewModel == nil) {
