@@ -172,11 +172,6 @@ static const uint16_t Kport = 6969;
         }
     })
 }
-#pragma mark --  发送消息
-- (void)sendMessageData:(id)data success:(void(^)(void))success failed:(void(^)(void))failed{
-    
-}
-
 #pragma mark - socket delegate
 - (void)webSocketDidOpen:(SRWebSocket *)webSocket {
     //每次正常连接的时候清零重连时间
@@ -218,7 +213,7 @@ static const uint16_t Kport = 6969;
     NSString *reply = [[NSString alloc] initWithData:pongPayload encoding:NSUTF8StringEncoding];
     NSLog(@"reply===%@",reply);
 }
-
+#pragma mark -- 收到服务端 数据
 - (void)webSocket:(SRWebSocket *)webSocket didReceiveMessage:(id)message  {
     
     if (webSocket == self.webSocket) {

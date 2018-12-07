@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) ZZBaseNavigationBarView * navBarView;
 - (void)creatNavBarViewWithTitle:(id)title;
 @property (nonatomic, strong) UIView * backView;
-- (void)showLeftButton;
+- (void)showLeftButtonWithTitle:(NSString *)title;
 @end
 
 NS_ASSUME_NONNULL_END

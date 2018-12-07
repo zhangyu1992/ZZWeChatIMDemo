@@ -11,6 +11,9 @@
 #import "CYLTabBarController.h"
 #import "ZZWeChatViewController.h"
 #import "ZZAddressBookViewController.h"
+#import "ZZFindViewController.h"
+#import "ZZMineViewController.h"
+
 #import "JTNavigationController.h"
 @interface AppDelegate ()
 @property (nonatomic, strong) CYLTabBarController * tabBarController;
@@ -35,20 +38,20 @@
 
 - (void)setupViewControllers {
     ZZWeChatViewController *firstViewController = [[ZZWeChatViewController alloc] init];
-    JTNavigationController *firstNavigationController = [[JTNavigationController alloc]
-                                                   initWithRootViewController:firstViewController];
+//    JTNavigationController *firstNavigationController = [[JTNavigationController alloc]
+//                                                   initWithRootViewController:firstViewController];
     
     ZZAddressBookViewController *secondViewController = [[ZZAddressBookViewController alloc] init];
-    JTNavigationController *secondNavigationController = [[JTNavigationController alloc]
-                                                    initWithRootViewController:secondViewController];
+//    JTNavigationController *secondNavigationController = [[JTNavigationController alloc]
+//                                                    initWithRootViewController:secondViewController];
     
-    ZZAddressBookViewController *findViewController = [[ZZAddressBookViewController alloc] init];
-    JTNavigationController *findNavigationController = [[JTNavigationController alloc]
-                                                          initWithRootViewController:findViewController];
+    ZZFindViewController *findViewController = [[ZZFindViewController alloc] init];
+//    JTNavigationController *findNavigationController = [[JTNavigationController alloc]
+//                                                          initWithRootViewController:findViewController];
     
-    ZZAddressBookViewController *mineViewController = [[ZZAddressBookViewController alloc] init];
-    JTNavigationController *mineNavigationController = [[JTNavigationController alloc]
-                                                          initWithRootViewController:mineViewController];
+    ZZMineViewController *mineViewController = [[ZZMineViewController alloc] init];
+//    JTNavigationController *mineNavigationController = [[JTNavigationController alloc]
+//                                                          initWithRootViewController:mineViewController];
     
     
     CYLTabBarController *tabBarController = [[CYLTabBarController alloc] init];

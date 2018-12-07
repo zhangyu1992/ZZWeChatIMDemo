@@ -63,14 +63,10 @@
     }
     NSLog(@"创建表失败");
     return NO;
-    
-    
-   
-    
 }
 
 #pragma mark -- 3.添加数据
-- (BOOL)addDataToTable:(NSString *)tableName With:(NSDictionary *)params{
+- (BOOL)addDataToTable:(NSString *)tableName WithContentDict:(NSDictionary *)params{
 
     //1.executeUpdate:不确定的参数用？来占位（后面参数必须是oc对象，；代表语句结束）
     NSMutableArray * wenhaoArray = [[NSMutableArray alloc]init];

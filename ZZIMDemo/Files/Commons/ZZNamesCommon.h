@@ -13,4 +13,8 @@
 #define ZZSQL_WECHATLIST @"WeChat.sqlite"
 /**微信首页消息列表 表名*/
 #define ZZSQL_TABLE_WeChatListTable @"WeChatListTable"
+
+/**微信聊天消息列表 表名*/
+#define ZZSQL_TABLE_WeChatSessionTable @"WeChatSessionTable"
+
 #endif /* ZZNamesCommon_h */

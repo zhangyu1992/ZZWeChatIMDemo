@@ -21,8 +21,8 @@
     [self.navigationController setNavigationBarHidden:YES animated:YES];
     [self.view addSubview:self.backView];
 }
-- (void)showLeftButton{
-    [self creatNavLeftBtnWithItem:@"返回" action:@selector(ClickLeftButton:) target:self];
+- (void)showLeftButtonWithTitle:(NSString *)title{
+    [self creatNavLeftBtnWithItem:title action:@selector(ClickLeftButton:) target:self];
 }
 - (void)ClickLeftButton:(UIButton *)sender{
     [self.navigationController popViewControllerAnimated:YES];

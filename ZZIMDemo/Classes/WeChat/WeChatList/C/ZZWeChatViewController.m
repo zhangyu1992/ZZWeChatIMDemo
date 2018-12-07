@@ -21,6 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
     [self creatNavBarViewWithTitle:@"微信"];
     ZZSearchBarView * searchBarView = [[ZZSearchBarView alloc]initWithFrame:CGRectMake(0, 0, self.backView.frame.size.width, 44)];
     [self.backView addSubview:searchBarView];
@@ -32,6 +33,7 @@
     [self.backView addSubview:listTableView];
 
 }
+#pragma mark -- 点击cell
 - (void)TableViewDidSelectedWithModel:(ZZWeChatModel *)wechatModel{
     [super.navigationController pushViewController:[self.WeChatViewModel pushSessionViewControllerWithWeChatModel:wechatModel] animated:YES];
 }

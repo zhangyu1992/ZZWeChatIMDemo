@@ -37,4 +37,7 @@
 #define ZZWeChatNameLabelFont [UIFont systemFontOfSize:20.0]
 #define ZZWeChatContLabelFont [UIFont systemFontOfSize:18.0]
 
+
+#define iPhoneX_SafeArea_Bottom ([ZZTools getSafeAreaBottom])
+
 #endif /* ZZStyleCommon_h */
