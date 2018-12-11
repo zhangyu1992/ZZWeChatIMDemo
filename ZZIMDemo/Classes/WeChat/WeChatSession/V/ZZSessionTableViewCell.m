@@ -69,8 +69,6 @@
             make.bottom.equalTo(self.bgView.mas_bottom).offset(-10);
             make.width.mas_lessThanOrEqualTo(0.5 * ZZScreenWidth);
         }];
-        self.messageTextLabel.textAlignment = NSTextAlignmentRight;
-
         
     }else if ([reuseIdentifier hasSuffix:@"time"]){
         // 时间
@@ -112,8 +110,6 @@
             make.height.greaterThanOrEqualTo(@(50));
             make.width.mas_lessThanOrEqualTo(0.5 * ZZScreenWidth);
         }];
-        self.messageTextLabel.textAlignment = NSTextAlignmentLeft;
-
     }
 }
 -(UILabel *)timeTextLabel{

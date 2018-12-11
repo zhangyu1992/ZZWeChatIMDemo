@@ -16,18 +16,20 @@
 + (instancetype)initInputView{
     NSString *className = NSStringFromClass([self class]);
     UINib *nib = [UINib nibWithNibName:className bundle:nil];
-    // 添加通知监听见键盘弹出/退出
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardAction:) name:UIKeyboardWillShowNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardAction:) name:UIKeyboardWillHideNotification object:nil];
     return [nib instantiateWithOwner:nil options:nil].firstObject;
 
 }
-#pragma mark -- 点击非textview区域
--(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    [self.inputView resignFirstResponder];
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
+    if ([text isEqualToString:@"\n"]){
+        if (self.delegate && [self.delegate respondsToSelector:@selector(sendMessage:)]) {
+            [self.delegate sendMessage:textView.text];
+            self.inputTextView.text = @"";
+        }
+        return NO;
+    }
+    
+    return YES;
 }
-// 键盘监听事件
-- (void)
 #pragma make -- 添加按钮
 - (IBAction)clickAddItemButton:(id)sender {
 }

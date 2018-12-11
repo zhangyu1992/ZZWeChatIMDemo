@@ -14,7 +14,8 @@
 /**微信首页消息列表 表名*/
 #define ZZSQL_TABLE_WeChatListTable @"WeChatListTable"
 
-/**微信聊天消息列表 表名*/
-#define ZZSQL_TABLE_WeChatSessionTable @"WeChatSessionTable"
+/**微信聊天消息列表 表名 receiveID:接受者ID*/
+#define ZZSQL_TABLE_WeChatSessionTable(WeChatID) [NSString stringWithFormat:@"WeChatSessionTable_%@",WeChatID]
+//@"WeChatSessionTable"
 
 #endif /* ZZNamesCommon_h */

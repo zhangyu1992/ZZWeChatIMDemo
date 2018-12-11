@@ -18,6 +18,13 @@
         return 0;
     }
 }
-
-
+#pragma mark -- 返回当前时间
++ (NSString *)getNowTimeString{
+    NSDate * date = [NSDate date];
+    NSDateFormatter * formatter = [[NSDateFormatter  alloc]init];
+    [formatter setDateFormat:@"YYYY-MM-dd HH:mm:SS"];
+    NSString * time = [formatter stringFromDate:date];
+    return time;
+    
+}
 @end

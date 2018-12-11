@@ -34,6 +34,7 @@
         ZZWeChatModel * model = [ZZWeChatModel mj_objectWithKeyValues:dict];
         [modelArray addObject:model];
     }
+    [self test];
     return modelArray;
 }
 #pragma mark 打开数据库
@@ -54,14 +55,14 @@
 
 - (void)test{
     // 添加
-    [[ZZFMDBTool shareInstance] addDataToTable:ZZSQL_TABLE_WeChatListTable WithContentDict:@{@"wechat_id":@"3",@"wechat_name":@"zhangzhang",@"lastText":@"哈哈",@"lastTime":@"2018-12-06 13:47:00"}];
+//    [[ZZFMDBTool shareInstance] addDataToTable:ZZSQL_TABLE_WeChatListTable WithContentDict:@{@"wechat_id":@"2",@"wechat_name":@"zhangzhang",@"lastText":@"哈哈",@"lastTime":@"2018-12-06 13:47:00"}];
     // 删除
-    [[ZZFMDBTool shareInstance] deleteDataWithTable:ZZSQL_TABLE_WeChatListTable andWeChatID:@"1"];
+//    [[ZZFMDBTool shareInstance] deleteDataWithTable:ZZSQL_TABLE_WeChatListTable andWeChatID:@"1"];
     // 修改
-    [[ZZFMDBTool shareInstance] reviseDataWithTable:ZZSQL_TABLE_WeChatListTable WeChatId:@"2" andReviseKey:@"lastText" ReviseValue:@"最后的话"];
+//    [[ZZFMDBTool shareInstance] reviseDataWithTable:ZZSQL_TABLE_WeChatListTable WeChatId:@"2" andReviseKey:@"lastText" ReviseValue:@"最后的话"];
     // 查找
-    [[ZZFMDBTool shareInstance] inquireALLDataWithTable:ZZSQL_TABLE_WeChatListTable andKeysArray:@[@"wechat_id",@"wechat_name",@"lastText",@"lastTime"]];
-    // 删表
-    [[ZZFMDBTool shareInstance]deleteTable:ZZSQL_TABLE_WeChatListTable];
+//    [[ZZFMDBTool shareInstance] inquireALLDataWithTable:ZZSQL_TABLE_WeChatListTable andKeysArray:@[@"wechat_id",@"wechat_name",@"lastText",@"lastTime"]];
+//     删表
+//    [[ZZFMDBTool shareInstance]deleteTable:ZZSQL_TABLE_WeChatListTable];
 }
 @end

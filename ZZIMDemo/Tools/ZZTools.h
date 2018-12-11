@@ -11,9 +11,20 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ZZTools : NSObject
+
+/**
+ iPhone X 底部安全距离
+
+ @return iPhone X 底部安全距离
+ */
 + (CGFloat)getSafeAreaBottom;
-+(void)getProperties;
-+ (id)updateVariable;
+
+/**
+ 当前时间 字符串
+
+ @return 返回当前时间 str
+ */
++ (NSString *)getNowTimeString;
 @end
 
 

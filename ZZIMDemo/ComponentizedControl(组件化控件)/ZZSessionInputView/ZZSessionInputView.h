@@ -9,9 +9,14 @@
 #import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
+@protocol ZZSessionInputViewDelegate <NSObject>
 
+- (void)sendMessage:(NSString *)message;
+
+@end
 @interface ZZSessionInputView : UIView
 + (instancetype)initInputView;
+@property (nonatomic,weak) id <ZZSessionInputViewDelegate> delegate;
 @end
 
 NS_ASSUME_NONNULL_END
