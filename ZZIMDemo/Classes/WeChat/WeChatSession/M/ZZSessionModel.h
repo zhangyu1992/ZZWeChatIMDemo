@@ -16,6 +16,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString * sendName;
 @property (nonatomic, copy) NSString * sendID;
 @property (nonatomic, copy) NSString * isMySelf;// 1：是 0：不是
+@property (nonatomic, copy) NSString * iconImageUrl;
+@property (nonatomic, copy) NSString * ToID;
+
+
 @end
 
 NS_ASSUME_NONNULL_END

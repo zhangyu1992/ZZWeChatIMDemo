@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface ZZWeChatModel : ZZBaseModel
 @property (nonatomic,copy) NSString * wechat_id;
 @property (nonatomic,copy) NSString * wechat_name;
+@property (nonatomic,copy) NSString * receive_id;// 接收人ID
 @property (nonatomic,copy) NSString * lastText;
 @property (nonatomic,copy) NSString * lastTime;
 @end

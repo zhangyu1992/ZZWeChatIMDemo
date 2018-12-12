@@ -30,7 +30,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ZZIMDemo/Classes/WeChat/WeChatSession/V/ZZWeChatSessionTableView.m"
-            timestampString = "566213517.380684"
+            timestampString = "566296493.7745121"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "94"
@@ -46,7 +46,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ZZIMDemo/Classes/WeChat/WeChatSession/V/ZZWeChatSessionTableView.m"
-            timestampString = "566213517.380758"
+            timestampString = "566296493.774598"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "32"
@@ -62,11 +62,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ZZIMDemo/Classes/WeChat/WeChatList/VM/ZZWeChatViewModel.m"
-            timestampString = "566213517.38104"
+            timestampString = "566296493.774933"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
             landmarkName = "-isTableExist"
             landmarkType = "7">
          </BreakpointContent>
@@ -77,13 +77,61 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ZZIMDemo/Classes/WeChat/WeChatSession/V/ZZWeChatSessionTableView.m"
-            timestampString = "566213517.381217"
+            filePath = "ZZIMDemo/WebSocket/ZZWebSocketUtility.m"
+            timestampString = "566296493.775194"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
-            landmarkName = "-ScrollToBottom"
+            startingLineNumber = "127"
+            endingLineNumber = "127"
+            landmarkName = "-sendData:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ZZIMDemo/Classes/AddressBook/ZZWeChatSessionViewController.m"
+            timestampString = "566296493.775414"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
+            landmarkName = "-sendMessage:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ZZIMDemo/Classes/WeChat/VM/ZZWeChatSessionViewModel.m"
+            timestampString = "566296493.775637"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
+            landmarkName = "-addMessageToDBWithWeChatModel:sendMessage:success:failed:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ZZIMDemo/Classes/WeChat/VM/ZZWeChatSessionViewModel.m"
+            timestampString = "566296493.776191"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
+            landmarkName = "-addMessageToDBWithWeChatModel:sendMessage:success:failed:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

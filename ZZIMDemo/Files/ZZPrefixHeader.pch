@@ -12,6 +12,8 @@
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 
+// model
+#import "ZZUserInfoModel.h"
 //common
 #import "ZZStyleCommon.h"
 #import "ZZNamesCommon.h"
@@ -25,4 +27,6 @@
 #import "NSDictionary+GMBExtension.h"
 #import "MJExtension.h"
 
+// websocket
+#import "ZZWebSocketUtility.h"
 #endif /* ZZPrefixHeader_pch */

@@ -20,7 +20,10 @@
 @end
 
 @implementation ZZWeChatSessionViewController
-
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [[ZZWebSocketUtility shareInstance] connectWebSocket];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -33,18 +36,45 @@
     [self.sessionTableView ScrollToBottom];
     // 键盘监听
     [self.sessionViewModel NotiKeyBoard];
+    
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(WebSocketDidReceiveMessageNoti:) name:@"WebSocketDidReceiveMessageNoti" object:nil];
+
+}
+-(void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"WebSocketDidReceiveMessageNoti" object:nil];
+}
+#pragma mark -- WebSocketDidReceiveMessageNoti
+- (void)WebSocketDidReceiveMessageNoti:(NSNotification *)object{
+    
+    NSDictionary * dict = object.object;
+
+    [self.sessionViewModel receiveMessage:dict toDBWithWeChatModel:self.listWeChatModel];
+    
+    ZZSessionModel * sessionModel = [ZZSessionModel mj_objectWithKeyValues:dict];
+    [self.sessionTableView.dataArray addObject:sessionModel];
+    NSIndexPath * indexpath = [NSIndexPath indexPathForRow:self.sessionTableView.dataArray.count -1 inSection:0];
+    __weak typeof(self) weakSelf = self;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [weakSelf.sessionTableView insertRowsAtIndexPaths:@[indexpath] withRowAnimation:UITableViewRowAnimationBottom];
+        [weakSelf.sessionTableView ScrollToBottom];
+    });
+
+    
 }
 #pragma mark -- 发送消息 -->> delegate
-- (void)sendMessage:(NSString *)message{
+- (void)sendMessage:(NSString *)message {
     __weak typeof(self) weakSelf = self;
-    [self.sessionViewModel addMessageToDBWithWeChatID:self.listWeChatModel.wechat_id Message:message success:^(ZZSessionModel * _Nonnull sessionModel) {
+    [self.sessionViewModel addMessageToDBWithWeChatModel:self.listWeChatModel sendMessage:message success:^(ZZSessionModel * _Nonnull sessionModel) {
+        
         [weakSelf.sessionTableView.dataArray addObject:sessionModel];
         NSIndexPath * indexpath = [NSIndexPath indexPathForRow:weakSelf.sessionTableView.dataArray.count -1 inSection:0];
         [weakSelf.sessionTableView insertRowsAtIndexPaths:@[indexpath] withRowAnimation:UITableViewRowAnimationBottom];
         [weakSelf.sessionTableView ScrollToBottom];
+        
     } failed:^{
         
     }];
+
 }
 #pragma mark -- 滑动取消键盘 -->> delegate
 - (void)tableViewResignFirstResponder{
@@ -52,26 +82,47 @@
 }
 #pragma mark -- 键盘取消  -->> delegate
 - (void)keyboardWillHide{
-//    self.backView.transform = CGAffineTransformMakeTranslation(0, 0);
-    self.backView.frame = CGRectMake(0, 0, ZZScreenWidth, ZZScreenHeight - ZZ_Navigation_Height - 48);
-
+    self.backView.transform = CGAffineTransformMakeTranslation(0, 0);
+    [self.inputView mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.backView.mas_left);
+        make.right.equalTo(self.backView.mas_right);
+        make.height.mas_equalTo(InputViewHeight);
+        make.bottom.equalTo(self.backView.mas_bottom).offset(-iPhoneX_SafeArea_Bottom);
+    }];
 }
 #pragma mark -- 键盘出现  -->> delegate
-- (void)keyboardWillShowToY:(CGFloat )KeyBoardY withAnimationOption:(NSInteger)animationOption andDuration:(double)timeInterval{
+- (void)keyboardWillShowToKeyboardRect:(CGRect)keyboardRect withAnimationOption:(NSInteger)animationOption andDuration:(double)timeInterval{
     
     [UIView animateWithDuration:timeInterval delay:0.0 options:animationOption << 16  animations:^{
-//        if (self.sessionTableView.contentSize.height > KeyBoardY) {
-//            self.backView.transform = CGAffineTransformMakeTranslation(0, KeyBoardY - self.view.frame.size.height);
-        self.backView.backgroundColor = [UIColor redColor];
-            self.backView.frame = CGRectMake(0, self.backView.frame.origin.y, ZZScreenWidth, self.backView.frame.size.height - 300);
-//        }
+        if (self.sessionTableView.contentSize.height > keyboardRect.origin.y) {
+            self.backView.transform = CGAffineTransformMakeTranslation(0, keyboardRect.origin.y - self.view.frame.size.height);
+            [self.inputView mas_remakeConstraints:^(MASConstraintMaker *make) {
+                make.left.equalTo(self.backView.mas_left);
+                make.right.equalTo(self.backView.mas_right);
+                make.height.mas_equalTo(InputViewHeight);
+                make.bottom.equalTo(self.backView.mas_bottom).offset(-iPhoneX_SafeArea_Bottom);
+            }];
+        }else{
+            [self.inputView mas_remakeConstraints:^(MASConstraintMaker *make) {
+                make.left.equalTo(self.backView.mas_left);
+                make.right.equalTo(self.backView.mas_right);
+                make.height.mas_equalTo(InputViewHeight);
+                make.bottom.equalTo(self.backView.mas_bottom).offset(-iPhoneX_SafeArea_Bottom - keyboardRect.size.height);
+            }];
+        }
     } completion:nil];
     
     [self.sessionTableView tableviewScrollToBottom];
 }
 #pragma make -- 布局
 - (void)viewDidLayoutSubviews{
-    self.inputView.frame = CGRectMake(0, self.backView.frame.size.height - InputViewHeight - iPhoneX_SafeArea_Bottom, self.backView.frame.size.width, InputViewHeight + iPhoneX_SafeArea_Bottom);
+//    self.inputView.frame = CGRectMake(0, self.backView.frame.size.height - InputViewHeight - iPhoneX_SafeArea_Bottom, self.backView.frame.size.width, InputViewHeight + iPhoneX_SafeArea_Bottom);
+    [self.inputView mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.backView.mas_left);
+        make.right.equalTo(self.backView.mas_right);
+        make.height.mas_equalTo(InputViewHeight);
+        make.bottom.equalTo(self.backView.mas_bottom).offset(-iPhoneX_SafeArea_Bottom);
+    }];
 }
 // 列表
 -(ZZWeChatSessionTableView *)sessionTableView{

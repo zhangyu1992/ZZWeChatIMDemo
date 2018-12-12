@@ -7,6 +7,7 @@
 //
 
 #import "ZZWebSocketUtility.h"
+#import "ZZSessionModel.h"
 #define dispatch_main_async_safe(block)\
 if ([NSThread isMainThread]) {\
 block();\
@@ -47,6 +48,7 @@ static const uint16_t Kport = 6969;
 #pragma mark -- 初始化websocket
 - (void)initSocket{
     if (self.webSocket) {
+        [self reConnect];
         return;
     }
     self.webSocket = [[SRWebSocket alloc]initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"ws://%@:%d",Khost,Kport]]];
@@ -80,7 +82,7 @@ static const uint16_t Kport = 6969;
     dispatch_main_async_safe(^{
         [self destoryHeartBeat];
         //心跳设置为3分钟，NAT超时一般为5分钟
-        self.heartBeat = [NSTimer timerWithTimeInterval:10 target:self selector:@selector(sentheart) userInfo:nil repeats:YES];
+        self.heartBeat = [NSTimer timerWithTimeInterval:60*3 target:self selector:@selector(sentheart) userInfo:nil repeats:YES];
         //和服务端约定好发送什么作为心跳标识，尽可能的减小心跳包大小
         [[NSRunLoop currentRunLoop] addTimer:self.heartBeat forMode:NSRunLoopCommonModes];
     })
@@ -98,6 +100,10 @@ static const uint16_t Kport = 6969;
 }
 #pragma mark -- 信息发送
 - (void)sendMessageData:(id)data{
+    
+    if ([data isKindOfClass:[NSDictionary class]]) {
+        data = [data mj_JSONData];
+    }
     [self sendData:data];
 }
 - (void)sendData:(id)data {
@@ -220,7 +226,11 @@ static const uint16_t Kport = 6969;
         NSLog(@"************************** socket收到数据了************************** ");
         NSLog(@"我这后台约定的 message 是 json 格式数据收到数据，就按格式解析吧，然后把数据发给调用层");
         NSLog(@"message:%@",message);
-        
+        if([message isKindOfClass:[NSData class]]){
+            NSMutableDictionary * jsonDict = [[NSMutableDictionary alloc]initWithDictionary:[message mj_JSONObject]];
+            [jsonDict gmSetObject:@"0" forKey:@"isMySelf"];
+            [[NSNotificationCenter defaultCenter]postNotificationName:@"WebSocketDidReceiveMessageNoti" object:jsonDict];
+        }
         [[NSNotificationCenter defaultCenter] postNotificationName:kWebSocketdidReceiveMessageNote object:message];
     }
 }

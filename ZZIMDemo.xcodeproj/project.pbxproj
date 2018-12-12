@@ -28,6 +28,7 @@
 		26A35C3B21B8C72E00CE5A81 /* ZZWeChatSessionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 26A35C3A21B8C72E00CE5A81 /* ZZWeChatSessionTableViewCell.m */; };
 		26A35C3F21B8CA9B00CE5A81 /* ZZFMDBTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 26A35C3E21B8CA9B00CE5A81 /* ZZFMDBTool.m */; };
 		26A35C4221B8F6B400CE5A81 /* NSDictionary+GMBExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 26A35C4121B8F6B400CE5A81 /* NSDictionary+GMBExtension.m */; };
+		26E41DB421C0E48C00CF8571 /* ZZUserInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E41DB321C0E48B00CF8571 /* ZZUserInfoModel.m */; };
 		26E7557C21B90DE9005FB335 /* ZZWeChatSessionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26E7557B21B90DE9005FB335 /* ZZWeChatSessionTableViewCell.xib */; };
 		26E7557F21B91161005FB335 /* ZZAddressBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E7557E21B91161005FB335 /* ZZAddressBookViewController.m */; };
 		26E7558821B915D4005FB335 /* ZZWeChatSessionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E7558721B915D4005FB335 /* ZZWeChatSessionViewController.m */; };
@@ -106,6 +107,8 @@
 		26A35C3E21B8CA9B00CE5A81 /* ZZFMDBTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZZFMDBTool.m; sourceTree = "<group>"; };
 		26A35C4021B8F6B300CE5A81 /* NSDictionary+GMBExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+GMBExtension.h"; sourceTree = "<group>"; };
 		26A35C4121B8F6B400CE5A81 /* NSDictionary+GMBExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+GMBExtension.m"; sourceTree = "<group>"; };
+		26E41DB221C0E48B00CF8571 /* ZZUserInfoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZZUserInfoModel.h; sourceTree = "<group>"; };
+		26E41DB321C0E48B00CF8571 /* ZZUserInfoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZZUserInfoModel.m; sourceTree = "<group>"; };
 		26E7557B21B90DE9005FB335 /* ZZWeChatSessionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZZWeChatSessionTableViewCell.xib; sourceTree = "<group>"; };
 		26E7557D21B91161005FB335 /* ZZAddressBookViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZZAddressBookViewController.h; sourceTree = "<group>"; };
 		26E7557E21B91161005FB335 /* ZZAddressBookViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZZAddressBookViewController.m; sourceTree = "<group>"; };
@@ -251,6 +254,8 @@
 				26E7559621BA1299005FB335 /* ZZTools.m */,
 				26E755A121BA1610005FB335 /* ZZBaseModel.h */,
 				26E755A221BA1610005FB335 /* ZZBaseModel.m */,
+				26E41DB221C0E48B00CF8571 /* ZZUserInfoModel.h */,
+				26E41DB321C0E48B00CF8571 /* ZZUserInfoModel.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -719,6 +724,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26E41DB421C0E48C00CF8571 /* ZZUserInfoModel.m in Sources */,
 				26A35C2D21B8B6EC00CE5A81 /* ZZSearchBarView.m in Sources */,
 				26E755A921BA16DF005FB335 /* ZZWeChatModel.m in Sources */,
 				26E7559721BA1299005FB335 /* ZZTools.m in Sources */,

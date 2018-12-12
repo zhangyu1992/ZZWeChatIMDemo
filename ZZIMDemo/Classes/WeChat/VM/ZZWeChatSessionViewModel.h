@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "ZZSessionModel.h"
-
+#import "ZZWeChatModel.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @protocol ZZWeChatSessionViewModelDelegate <NSObject>
@@ -21,7 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  键盘弹出
  */
-- (void)keyboardWillShowToY:(CGFloat )KeyBoardY withAnimationOption:(NSInteger)animationOption andDuration:(double)timeInterval;
+- (void)keyboardWillShowToKeyboardRect:(CGRect )keyboardRect withAnimationOption:(NSInteger)animationOption andDuration:(double)timeInterval;
 
 @end
 @interface ZZWeChatSessionViewModel : NSObject
@@ -43,12 +43,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  发送一条信息
- @param WeChatID 聊天ID
+ @param WeChatModel 聊天model
  @param message 信息内容
  @param success 成功
  @param failed 失败
  */
-- (void)addMessageToDBWithWeChatID:(NSString *)WeChatID Message:(NSString *)message success:(void (^)(ZZSessionModel * _Nonnull sessionModel))success failed:(void (^)(void))failed;
+- (void)addMessageToDBWithWeChatModel:(ZZWeChatModel *)WeChatModel sendMessage:(NSString *)message success:(void (^)(ZZSessionModel * _Nonnull sessionModel))success failed:(void (^)(void))failed;
+
+- (BOOL)receiveMessage:(NSDictionary *)dict toDBWithWeChatModel:(ZZWeChatModel *)WeChatModel;
 @end
 
 NS_ASSUME_NONNULL_END

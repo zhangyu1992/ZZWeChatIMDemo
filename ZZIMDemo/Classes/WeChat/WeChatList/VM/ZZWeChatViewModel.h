@@ -15,6 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface ZZWeChatViewModel : NSObject
 - (NSMutableArray *)getModelDataArrayFromLoaclTable;
 - (ZZWeChatSessionViewController * )pushSessionViewControllerWithWeChatModel:(ZZWeChatModel *)wechatModel;
+@property (nonatomic, strong) NSMutableArray * dataArray;
+- (void)WebSocketDidReceiveMessageNotiDict:(NSDictionary *)notiDict;
 @end
 
 NS_ASSUME_NONNULL_END

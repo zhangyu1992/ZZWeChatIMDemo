@@ -7,7 +7,7 @@
 //
 
 #import "ZZWeChatViewModel.h"
-
+#import "ZZSessionModel.h"
 @implementation ZZWeChatViewModel
 - (ZZWeChatSessionViewController * )pushSessionViewControllerWithWeChatModel:(ZZWeChatModel *)wechatModel{
     
@@ -35,8 +35,42 @@
         [modelArray addObject:model];
     }
     [self test];
+    self.dataArray = modelArray;
     return modelArray;
 }
+#pragma mark -- 接收 websocket 数据
+- (void)WebSocketDidReceiveMessageNotiDict:(NSDictionary *)notiDict{
+
+    ZZSessionModel * sendModel = [ZZSessionModel mj_objectWithKeyValues:notiDict];
+    BOOL isHave = NO;
+    for (ZZWeChatModel * model in self.dataArray) {
+        if([model.receive_id isEqualToString:sendModel.ToID]){
+            model.lastText = sendModel.messageText;
+            model.lastTime = sendModel.sendTime;
+            isHave = YES;
+            // 修改
+            [[ZZFMDBTool shareInstance] reviseDataWithTable:ZZSQL_TABLE_WeChatListTable WeChatId:model.wechat_id andReviseKey:@"lastText" ReviseValue: model.lastText];
+            [[ZZFMDBTool shareInstance] reviseDataWithTable:ZZSQL_TABLE_WeChatListTable WeChatId:model.wechat_id andReviseKey:@"lastTime" ReviseValue:model.lastTime];
+            break;
+        }
+    }
+    if (!isHave) {
+        ZZWeChatModel * model = [[ZZWeChatModel alloc]init];
+        model.lastText = sendModel.messageText;
+        model.lastTime = sendModel.sendTime;
+        model.wechat_name = sendModel.sendName;
+        model.wechat_id = sendModel.ToID;
+        model.receive_id = sendModel.ToID;
+        [self.dataArray addObject:model];
+        // 添加
+        [[ZZFMDBTool shareInstance] addDataToTable:ZZSQL_TABLE_WeChatListTable WithContentDict:model.mj_keyValues];
+
+    }
+    
+    
+    
+}
+
 #pragma mark 打开数据库
 - (BOOL)openDB{
    return [[ZZFMDBTool shareInstance] openDataBaseWithFileName:ZZSQL_WECHATLIST];
@@ -54,8 +88,9 @@
 }
 
 - (void)test{
-    // 添加
-//    [[ZZFMDBTool shareInstance] addDataToTable:ZZSQL_TABLE_WeChatListTable WithContentDict:@{@"wechat_id":@"2",@"wechat_name":@"zhangzhang",@"lastText":@"哈哈",@"lastTime":@"2018-12-06 13:47:00"}];
+     //添加
+//    [[ZZFMDBTool shareInstance] addDataToTable:ZZSQL_TABLE_WeChatListTable WithContentDict:@{@"wechat_id":@"wechat_id_1",@"wechat_name":@"小猪",@"receive_id":@"userID_1",@"lastText":@"",@"lastTime":@"14:30"}];
+//    [[ZZFMDBTool shareInstance] addDataToTable:ZZSQL_TABLE_WeChatListTable WithContentDict:@{@"wechat_id":@"wechat_id_2",@"wechat_name":@"大懒猪",@"receive_id":@"userID_2",@"lastText":@"",@"lastTime":@"14:30"}];
     // 删除
 //    [[ZZFMDBTool shareInstance] deleteDataWithTable:ZZSQL_TABLE_WeChatListTable andWeChatID:@"1"];
     // 修改

@@ -14,6 +14,7 @@
 #import "ZZWeChatSessionViewController.h"
 @interface ZZWeChatViewController ()<ZZWeChatListTableViewDelegate>
 @property (nonatomic, strong) ZZWeChatViewModel * WeChatViewModel;
+@property (nonatomic, strong) ZZWeChatListTableView * listTableView;
 @end
 
 @implementation ZZWeChatViewController
@@ -22,7 +23,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [self creatNavBarViewWithTitle:@"微信"];
+    [self creatNavBarViewWithTitle:[NSString stringWithFormat:@"%@的微信",[ZZUserInfoModel shareInstance].userName]];
+    
     ZZSearchBarView * searchBarView = [[ZZSearchBarView alloc]initWithFrame:CGRectMake(0, 0, self.backView.frame.size.width, 44)];
     [self.backView addSubview:searchBarView];
     
@@ -31,7 +33,25 @@
     listTableView.dataArray = [self.WeChatViewModel getModelDataArrayFromLoaclTable];
     [listTableView reloadData];
     [self.backView addSubview:listTableView];
+    self.listTableView = listTableView;
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(WebSocketDidReceiveMessageNoti:) name:@"WebSocketDidReceiveMessageNoti" object:nil];
 
+}
+-(void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"WebSocketDidReceiveMessageNoti" object:nil];
+}
+#pragma mark -- WebSocketDidReceiveMessageNoti
+- (void)WebSocketDidReceiveMessageNoti:(NSNotification *)object{
+    NSDictionary * dict = object.object;
+    [self.WeChatViewModel WebSocketDidReceiveMessageNotiDict:dict];
+    self.listTableView.dataArray = self.WeChatViewModel.dataArray;
+    __weak typeof(self) weakSelf = self;
+
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [weakSelf.listTableView reloadData];
+
+    });
+    
 }
 #pragma mark -- 点击cell
 - (void)TableViewDidSelectedWithModel:(ZZWeChatModel *)wechatModel{

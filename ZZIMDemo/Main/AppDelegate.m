@@ -26,6 +26,17 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     [[ZZWebSocketUtility shareInstance] connectWebSocket];
+    
+//    [ZZUserInfoModel shareInstance].userId = @"userID_1";
+//    [ZZUserInfoModel shareInstance].userName = @"小猪";
+//    [ZZUserInfoModel shareInstance].userImageName = @"touxiangnvhai";
+//
+
+    [ZZUserInfoModel shareInstance].userId = @"userID_2";
+    [ZZUserInfoModel shareInstance].userName = @"大懒猪";
+    [ZZUserInfoModel shareInstance].userImageName = @"icon-gray";
+
+    
     [self setupViewControllers];
   
     JTNavigationController *firstNavigationController = [[JTNavigationController alloc]

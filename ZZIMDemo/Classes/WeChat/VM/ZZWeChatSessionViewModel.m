@@ -49,18 +49,26 @@
     }
     return YES;
 }
-- (void)addMessageToDBWithWeChatID:(NSString *)WeChatID Message:(NSString *)message success:(void (^)(ZZSessionModel * _Nonnull sessionModel))success failed:(void (^)(void))failed{
+#pragma mark -- 收到消息
+- (BOOL)receiveMessage:(NSDictionary *)dict toDBWithWeChatModel:(ZZWeChatModel *)WeChatModel{
+    BOOL isadd =  [[ZZFMDBTool shareInstance] addDataToTable:ZZSQL_TABLE_WeChatSessionTable(WeChatModel.wechat_id) WithContentDict:dict];
+    return isadd;
+}
+#pragma mark -- 发送消息
+- (void)addMessageToDBWithWeChatModel:(ZZWeChatModel *)WeChatModel sendMessage:(NSString *)message success:(void (^)(ZZSessionModel * _Nonnull sessionModel))success failed:(void (^)(void))failed{
     
     ZZSessionModel * model = [[ZZSessionModel alloc]init];
-    model.sendID = @"3";
-    model.sendName = @"zhangzhang";
+    model.sendID =  [ZZUserInfoModel shareInstance].userId;
+    model.sendName =  [ZZUserInfoModel shareInstance].userName;
     model.messageText = message;
     model.sendTime = [ZZTools getNowTimeString];
     model.isMySelf = @"1";
+    model.iconImageUrl = [ZZUserInfoModel shareInstance].userImageName;
+    model.ToID = WeChatModel.receive_id;
     NSDictionary * dict = model.mj_keyValues;
-    // 添加
-    ;
-    BOOL isadd =  [[ZZFMDBTool shareInstance] addDataToTable:ZZSQL_TABLE_WeChatSessionTable(WeChatID) WithContentDict:dict];
+    // 向表中添加
+    BOOL isadd =  [[ZZFMDBTool shareInstance] addDataToTable:ZZSQL_TABLE_WeChatSessionTable(WeChatModel.wechat_id) WithContentDict:dict];
+    [[ZZWebSocketUtility shareInstance] sendMessageData:dict];
     
     if (isadd) {
         success(model);
@@ -107,8 +115,8 @@
     NSInteger animationOption = [aNotification.userInfo[UIKeyboardAnimationCurveUserInfoKey] integerValue];
     
     
-    if (self.delegate && [self.delegate respondsToSelector:@selector(keyboardWillShowToY:withAnimationOption:andDuration:)]) {
-        [self.delegate keyboardWillShowToY:keyboardRect.origin.y withAnimationOption:animationOption andDuration:timeInterval];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(keyboardWillShowToKeyboardRect:withAnimationOption:andDuration:)]) {
+        [self.delegate keyboardWillShowToKeyboardRect:keyboardRect withAnimationOption:animationOption andDuration:timeInterval];
     }
 }
 
@@ -117,7 +125,9 @@
     if (self.delegate && [self.delegate respondsToSelector:@selector(keyboardWillHide)]) {
         [self.delegate keyboardWillHide];
     }
-}- (void)dealloc {
+}
+
+- (void)dealloc {
     
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];

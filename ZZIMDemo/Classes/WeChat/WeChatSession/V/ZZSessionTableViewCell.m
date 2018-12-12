@@ -27,6 +27,8 @@
 }
 - (void)setSessionModel:(ZZSessionModel *)sessionModel{
     self.messageTextLabel.text = sessionModel.messageText;
+    self.logoImageView.image = [UIImage imageNamed:sessionModel.iconImageUrl];
+
 }
 - (void)creatUIWithReuseIdentifier:(NSString *)reuseIdentifier{
     
@@ -48,7 +50,7 @@
             make.width.mas_equalTo(40);
             make.height.mas_equalTo(40);
         }];
-        self.logoImageView.image = [UIImage imageNamed:@"touxiangnvhai"];
+//        self.logoImageView.image = [UIImage imageNamed:@"touxiangnvhai"];
 
 
         [self.messageImageView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -87,7 +89,7 @@
             make.width.mas_equalTo(40);
             make.height.mas_equalTo(40);
         }];
-        self.logoImageView.image = [UIImage imageNamed:@"icon-gray"];
+//        self.logoImageView.image = [UIImage imageNamed:@"icon-gray"];
 
         [self.messageImageView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.bottom.equalTo(self.bgView.mas_bottom);
