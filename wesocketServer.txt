@@ -1,0 +1,42 @@
+var WebSocketServer = require('ws').Server;
+
+//在线用户
+var onlineUsers = {};
+//当前在线人数
+var onlineCount = 0;
+
+var arrAllSocket = [];
+wss = new WebSocketServer({ port: 6969 });
+wss.on('connection', function (ws) {
+    console.log('client connected');
+     onlineCount++;//在线人数+1
+    //ws.send('你是第' + wss.clients.length + '位');  
+    //收到消息回调
+    ws.on('message', function (message) {
+        var jsonObj1 = JSON.parse(message);  //使用JSON.parse() 将JSON字符串转为JS对象;
+        console.log(jsonObj1);
+	console.log('sendID == '+ jsonObj1.sendID);
+	console.log('ToID == '+ jsonObj1.ToID);
+
+        onlineUsers[jsonObj1.sendID] = ws;
+        
+        var target = onlineUsers[jsonObj1.ToID];
+        console.log("ws ==" + target);
+        console.log("onlineUsers ==" + onlineUsers);
+        console.log("在线人数 ==" + onlineCount);
+
+	if(target){
+        console.log("ws ==" + target);
+	  target.send('收到来自' + jsonObj1.sendName + '发送给'+ jsonObj1.ToID +'的消息');
+	  target.send(message);
+
+        }
+    });
+
+     // 退出聊天  
+    ws.on('close', function(close) {  
+         onlineCount--;
+        console.log('退出连接了');  
+    });  
+});
+console.log('开始监听6969端口');
